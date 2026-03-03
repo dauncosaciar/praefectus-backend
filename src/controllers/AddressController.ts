@@ -56,4 +56,17 @@ export class AddressController {
       res.status(500).json({ error: "Error al actualizar la dirección" });
     }
   };
+
+  static deleteAddress = async (req: Request, res: Response) => {
+    try {
+      req.user.addresses = req.user.addresses.filter(
+        address => address.toString() !== req.address._id.toString()
+      );
+
+      await Promise.allSettled([req.address.deleteOne(), req.user.save()]);
+      res.status(200).json({ message: "Dirección eliminada correctamente" });
+    } catch (error) {
+      res.status(500).json({ error: "Error al eliminar la dirección" });
+    }
+  };
 }

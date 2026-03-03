@@ -46,4 +46,6 @@ router.put(
   AddressController.updateAddress
 );
 
+router.delete("/:userId/addresses/:addressId", AddressController.deleteAddress);
+
 export default router;
