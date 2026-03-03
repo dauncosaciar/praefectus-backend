@@ -1,0 +1,35 @@
+import { Router } from "express";
+import { body } from "express-validator";
+import { handleInputErrors } from "../middlewares/validation";
+import { userExists, validateUserId } from "../middlewares/user";
+import { StudyController } from "../controllers/StudyController";
+
+const router = Router({ mergeParams: true });
+
+router.param("userId", validateUserId);
+router.param("userId", userExists);
+
+router.post(
+  "/:userId/studies",
+  body("title").notEmpty().withMessage("El título del estudio es obligatorio"),
+  body("institution").notEmpty().withMessage("La institución del estudio es obligatoria"),
+  body("startDate")
+    .isISO8601()
+    .withMessage("La fecha de inicio no tiene un formato válido")
+    .toDate(),
+  body("endDate")
+    .isISO8601()
+    .withMessage("La fecha de fin no tiene un formato válido")
+    .toDate()
+    .custom((value, { req }) => {
+      const startDate = req.body.startDate;
+      if (startDate && value && value < startDate) {
+        throw new Error("La fecha de fin debe ser posterior a la fecha de inicio");
+      }
+      return true;
+    }),
+  handleInputErrors,
+  StudyController.createStudy
+);
+
+export default router;

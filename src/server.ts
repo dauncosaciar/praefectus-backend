@@ -4,6 +4,7 @@ import morgan from "morgan";
 import { connectToDatabase } from "./config/db";
 import userRoutes from "./routes/userRoutes";
 import addressRoutes from "./routes/addressRoutes";
+import studyRoutes from "./routes/studyRoutes";
 
 // Allow reading .env files
 dotenv.config();
@@ -23,5 +24,6 @@ app.use(express.json());
 // API routes
 app.use("/api/v1/users", userRoutes);
 app.use("/api/v1/users", addressRoutes);
+app.use("/api/v1/users", studyRoutes);
 
 export default app;
