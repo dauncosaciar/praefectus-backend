@@ -47,3 +47,17 @@ export const addressExists = async (req: Request, res: Response, next: NextFunct
     res.status(500).json({ error: "Error al buscar la dirección" });
   }
 };
+
+export const addressBelongsToUser = async (
+  req: Request,
+  res: Response,
+  next: NextFunction
+) => {
+  if (req.address.user.toString() !== req.user._id.toString()) {
+    const error = new Error("La dirección no pertenece al usuario");
+    res.status(403).json({ error: error.message });
+    return;
+  }
+
+  next();
+};
