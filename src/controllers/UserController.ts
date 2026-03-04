@@ -1,10 +1,12 @@
 import { Request, Response } from "express";
 import User from "../models/UserModel";
+import { hashPassword } from "../utils/auth";
 
 export class UserController {
   static createUser = async (req: Request, res: Response) => {
     try {
       const user = new User(req.body);
+      user.password = await hashPassword(req.body.password);
       await user.save();
       res.status(201).json({ message: "Usuario creado correctamente" });
     } catch (error) {
