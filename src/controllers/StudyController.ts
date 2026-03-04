@@ -43,4 +43,17 @@ export class StudyController {
       res.status(500).json({ error: "Error al obtener el estudio" });
     }
   };
+
+  static updateStudy = async (req: Request, res: Response) => {
+    try {
+      req.study.title = req.body.title;
+      req.study.institution = req.body.institution;
+      req.study.startDate = req.body.startDate;
+      req.study.endDate = req.body.endDate;
+      await req.study.save();
+      res.status(200).json({ message: "Estudio actualizado correctamente" });
+    } catch (error) {
+      res.status(500).json({ error: "Error al actualizar el estudio" });
+    }
+  };
 }
