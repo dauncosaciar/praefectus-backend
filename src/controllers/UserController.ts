@@ -48,7 +48,7 @@ export class UserController {
       req.user.lastName = req.body.lastName;
       req.user.role = req.body.role;
       req.user.email = req.body.email;
-      req.user.password = req.body.password;
+      req.user.password = await hashPassword(req.body.password);
       await req.user.save();
       res.status(200).json({ message: "Usuario actualizado correctamente" });
     } catch (error) {
