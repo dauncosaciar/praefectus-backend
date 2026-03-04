@@ -17,6 +17,7 @@
   "author": "Daniel Alejandro Uncos Aciar",
   "license": "ISC",
   "dependencies": {
+    "bcrypt": "^6.0.0",
     "colors": "^1.4.0",
     "dotenv": "^17.3.1",
     "express": "^5.2.1",
@@ -25,6 +26,7 @@
     "morgan": "^1.10.1"
   },
   "devDependencies": {
+    "@types/bcrypt": "^6.0.0",
     "@types/express": "^5.0.6",
     "@types/morgan": "^1.9.10",
     "nodemon": "^3.1.14",
