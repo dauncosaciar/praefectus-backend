@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { body } from "express-validator";
+import { authenticate } from "../middlewares/auth";
 import { handleInputErrors } from "../middlewares/validation";
 import { AuthController } from "../controllers/AuthController";
 
@@ -12,5 +13,7 @@ router.post(
   handleInputErrors,
   AuthController.login
 );
+
+router.get("/user", authenticate, AuthController.getAuthenticatedUser);
 
 export default router;

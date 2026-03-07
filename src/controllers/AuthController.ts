@@ -32,4 +32,9 @@ export class AuthController {
       res.status(500).json({ error: "Error al iniciar sesión" });
     }
   };
+
+  static getAuthenticatedUser = async (req: Request, res: Response) => {
+    res.json(req.authenticatedUser);
+    return;
+  };
 }
