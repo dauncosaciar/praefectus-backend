@@ -4,7 +4,7 @@ import { authenticate } from "../middlewares/auth";
 import { handleInputErrors } from "../middlewares/validation";
 import { userExists, validateUserId } from "../middlewares/user";
 import { studyBelongsToUser, studyExists, validateStudyId } from "../middlewares/study";
-import { StudyController } from "../controllers/StudyController";
+import { StudyController } from "../controllers/study.controller";
 
 const router = Router({ mergeParams: true });
 
