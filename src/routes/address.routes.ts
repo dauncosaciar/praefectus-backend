@@ -1,14 +1,14 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { authenticate } from "../middlewares/auth";
-import { handleInputErrors } from "../middlewares/validation";
-import { userExists, validateUserId } from "../middlewares/user";
+import { authenticate } from "../middlewares/auth.middleware";
+import { handleInputErrors } from "../middlewares/validation.middleware";
+import { userExists, validateUserId } from "../middlewares/user.middleware";
 import {
   addressBelongsToUser,
   addressExists,
   validateAddressId
-} from "../middlewares/address";
-import { AddressController } from "../controllers/AddressController";
+} from "../middlewares/address.middleware";
+import { AddressController } from "../controllers/address.controller";
 
 const router = Router({ mergeParams: true });
 

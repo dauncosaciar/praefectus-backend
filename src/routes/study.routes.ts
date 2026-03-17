@@ -1,10 +1,14 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { authenticate } from "../middlewares/auth";
-import { handleInputErrors } from "../middlewares/validation";
-import { userExists, validateUserId } from "../middlewares/user";
-import { studyBelongsToUser, studyExists, validateStudyId } from "../middlewares/study";
-import { StudyController } from "../controllers/StudyController";
+import { authenticate } from "../middlewares/auth.middleware";
+import { handleInputErrors } from "../middlewares/validation.middleware";
+import { userExists, validateUserId } from "../middlewares/user.middleware";
+import {
+  studyBelongsToUser,
+  studyExists,
+  validateStudyId
+} from "../middlewares/study.middleware";
+import { StudyController } from "../controllers/study.controller";
 
 const router = Router({ mergeParams: true });
 

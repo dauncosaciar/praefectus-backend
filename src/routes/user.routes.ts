@@ -1,10 +1,10 @@
 import { Router } from "express";
 import { body } from "express-validator";
-import { authenticate } from "../middlewares/auth";
-import { requireAdmin } from "../middlewares/role";
-import { handleInputErrors } from "../middlewares/validation";
-import { userExists, validateUserId } from "../middlewares/user";
-import { UserController } from "../controllers/UserController";
+import { authenticate } from "../middlewares/auth.middleware";
+import { requireAdmin } from "../middlewares/role.middleware";
+import { handleInputErrors } from "../middlewares/validation.middleware";
+import { userExists, validateUserId } from "../middlewares/user.middleware";
+import { UserController } from "../controllers/user.controller";
 
 const router = Router();
 

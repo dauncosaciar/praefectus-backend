@@ -1,12 +1,12 @@
 import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
-import { connectToDatabase } from "./config/db";
-import authRoutes from "./routes/authRoutes";
-import profileRoutes from "./routes/profileRoutes";
-import userRoutes from "./routes/userRoutes";
-import addressRoutes from "./routes/addressRoutes";
-import studyRoutes from "./routes/studyRoutes";
+import { connectToDatabase } from "./config/db.config";
+import authRoutes from "./routes/auth.routes";
+import profileRoutes from "./routes/profile.routes";
+import userRoutes from "./routes/user.routes";
+import addressRoutes from "./routes/address.routes";
+import studyRoutes from "./routes/study.routes";
 
 // Allow reading .env files
 dotenv.config();
