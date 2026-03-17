@@ -3,7 +3,11 @@ import { body } from "express-validator";
 import { authenticate } from "../middlewares/auth.middleware";
 import { handleInputErrors } from "../middlewares/validation";
 import { userExists, validateUserId } from "../middlewares/user";
-import { studyBelongsToUser, studyExists, validateStudyId } from "../middlewares/study";
+import {
+  studyBelongsToUser,
+  studyExists,
+  validateStudyId
+} from "../middlewares/study.middleware";
 import { StudyController } from "../controllers/study.controller";
 
 const router = Router({ mergeParams: true });
