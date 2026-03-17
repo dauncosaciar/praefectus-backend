@@ -7,7 +7,7 @@ import {
   addressBelongsToUser,
   addressExists,
   validateAddressId
-} from "../middlewares/address";
+} from "../middlewares/address.middleware";
 import { AddressController } from "../controllers/address.controller";
 
 const router = Router({ mergeParams: true });
