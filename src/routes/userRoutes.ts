@@ -1,7 +1,7 @@
 import { Router } from "express";
 import { body } from "express-validator";
 import { authenticate } from "../middlewares/auth.middleware";
-import { requireAdmin } from "../middlewares/role";
+import { requireAdmin } from "../middlewares/role.middleware";
 import { handleInputErrors } from "../middlewares/validation";
 import { userExists, validateUserId } from "../middlewares/user";
 import { UserController } from "../controllers/user.controller";
