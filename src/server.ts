@@ -9,7 +9,9 @@ import addressRoutes from "./routes/address.routes";
 import studyRoutes from "./routes/study.routes";
 
 // Allow reading .env files
-dotenv.config();
+dotenv.config({
+  path: `.env.${process.env.NODE_ENV || "development"}`
+});
 
 // Connect to database
 connectToDatabase();
