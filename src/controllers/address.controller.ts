@@ -19,7 +19,7 @@ export class AddressController {
       const addresses = await Address.find({ user: req.user._id }).select(
         "_id street city province country user"
       );
-      res.json(addresses);
+      res.json({ data: addresses });
     } catch (error) {
       res.status(500).json({ error: "Error al obtener las direcciones" });
     }
@@ -38,7 +38,7 @@ export class AddressController {
         return;
       }
 
-      res.json(address);
+      res.json({ data: address });
     } catch (error) {
       res.status(500).json({ error: "Error al obtener la dirección" });
     }
