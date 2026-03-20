@@ -1,6 +1,6 @@
 import request from "supertest";
-import server from "../../server";
-import { connectTestDatabase, disconnectTestDatabase } from "../setup";
+import app from "../setup/app";
+import { connectTestDatabase, disconnectTestDatabase } from "../setup/db";
 
 beforeAll(connectTestDatabase);
 afterAll(disconnectTestDatabase);
@@ -14,10 +14,10 @@ describe("AUTH ROUTES", () => {
     password: "123456"
   };
 
-  // await request(server).post("/api/v1/auth/register").send(user);
+  // await request(app).post("/api/v1/auth/register").send(user);
 
   it("POST /api/v1/auth/login => should display input validation errors", async () => {
-    const res = await request(server).post("/api/v1/auth/login").send({});
+    const res = await request(app).post("/api/v1/auth/login").send({});
 
     expect(res.status).toBe(400);
     expect(res.body).toHaveProperty("errors");
@@ -29,7 +29,7 @@ describe("AUTH ROUTES", () => {
   });
 
   it("POST /api/v1/auth/login => should return a 404 response for a non-existent user", async () => {
-    const res = await request(server).post("/api/v1/auth/login").send({
+    const res = await request(app).post("/api/v1/auth/login").send({
       email: "not.exists@example.com",
       password: "123456"
     });
@@ -42,7 +42,7 @@ describe("AUTH ROUTES", () => {
   });
 
   it("POST /api/v1/auth/login => should return a 401 response for an incorrect user password", async () => {
-    const res = await request(server).post("/api/v1/auth/login").send({
+    const res = await request(app).post("/api/v1/auth/login").send({
       email: user.email,
       password: "incorrectPassword"
     });
@@ -55,7 +55,7 @@ describe("AUTH ROUTES", () => {
   });
 
   it("POST /api/v1/auth/login => should login user and return token", async () => {
-    const res = await request(server).post("/api/v1/auth/login").send({
+    const res = await request(app).post("/api/v1/auth/login").send({
       email: user.email,
       password: user.password
     });
