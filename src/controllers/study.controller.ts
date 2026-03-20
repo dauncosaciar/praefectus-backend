@@ -19,7 +19,7 @@ export class StudyController {
       const studies = await Study.find({ user: req.user._id }).select(
         "_id title institution startDate endDate user"
       );
-      res.json(studies);
+      res.json({ data: studies });
     } catch (error) {
       res.status(500).json({ error: "Error al obtener los estudios" });
     }
@@ -38,7 +38,7 @@ export class StudyController {
         return;
       }
 
-      res.json(study);
+      res.json({ data: study });
     } catch (error) {
       res.status(500).json({ error: "Error al obtener el estudio" });
     }
