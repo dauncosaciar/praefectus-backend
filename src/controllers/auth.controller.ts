@@ -27,14 +27,14 @@ export class AuthController {
 
       // Generate JWT and send it to client
       const authToken = generateJwt({ _id: user._id });
-      res.send(authToken);
+      res.send({ token: authToken });
     } catch (error) {
       res.status(500).json({ error: "Error al iniciar sesión" });
     }
   };
 
   static getAuthenticatedUser = async (req: Request, res: Response) => {
-    res.json(req.authenticatedUser);
+    res.json({ data: req.authenticatedUser });
     return;
   };
 }
