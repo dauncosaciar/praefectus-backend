@@ -5,6 +5,12 @@ export const connectTestDatabase = async () => {
 };
 
 export const disconnectTestDatabase = async () => {
-  await mongoose.connection.dropDatabase();
+  const collections = mongoose.connection.collections;
+
+  for (const key in collections) {
+    const collection = collections[key];
+    await collection.deleteMany({});
+  }
+
   await mongoose.connection.close();
 };
