@@ -24,35 +24,16 @@ describe("AUTH ROUTES", () => {
   });
 
   it("POST /api/v1/auth/register => should return a 409 response for a duplicated email", async () => {
-    // First request: create user successfully
-    const firstRes = await request(app).post("/api/v1/auth/register").send({
-      name: user.name,
-      lastName: user.lastName,
-      email: user.email,
-      password: user.password,
-      passwordConfirmation: user.passwordConfirmation
-    });
+    // Create o register an user first
+    await request(app).post("/api/v1/auth/register").send(user);
 
-    expect(firstRes.status).toBe(201);
-    expect(firstRes.body).toHaveProperty("message");
+    const res = await request(app).post("/api/v1/auth/register").send(user);
 
-    expect(firstRes.status).not.toBe(409);
-    expect(firstRes.body).not.toHaveProperty("error");
+    expect(res.status).toBe(409);
+    expect(res.body).toHaveProperty("error");
 
-    // Second request: same email (fail)
-    const secondRes = await request(app).post("/api/v1/auth/register").send({
-      name: user.name,
-      lastName: user.lastName,
-      email: user.email, // same email as in firstRes
-      password: user.password,
-      passwordConfirmation: user.passwordConfirmation
-    });
-
-    expect(secondRes.status).toBe(409);
-    expect(secondRes.body).toHaveProperty("error");
-
-    expect(secondRes.status).not.toBe(201);
-    expect(secondRes.body).not.toHaveProperty("message");
+    expect(res.status).not.toBe(201);
+    expect(res.body).not.toHaveProperty("message");
   });
 
   it("POST /api/v1/auth/register => should return a 201 response for a new created user", async () => {
@@ -97,6 +78,9 @@ describe("AUTH ROUTES", () => {
   });
 
   it("POST /api/v1/auth/login => should return a 401 response for an incorrect user password", async () => {
+    // Create o register an user first
+    await request(app).post("/api/v1/auth/register").send(user);
+
     const res = await request(app).post("/api/v1/auth/login").send({
       email: user.email,
       password: "incorrectPassword"
@@ -109,7 +93,10 @@ describe("AUTH ROUTES", () => {
     expect(res.body).not.toHaveProperty("token");
   });
 
-  it("POST /api/v1/auth/login => should login user and return token", async () => {
+  it("POST /api/v1/auth/login => should login user and return token to the client", async () => {
+    // Create o register an user first
+    await request(app).post("/api/v1/auth/register").send(user);
+
     const res = await request(app).post("/api/v1/auth/login").send({
       email: user.email,
       password: user.password
