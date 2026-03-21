@@ -4,6 +4,11 @@ import { checkPassword } from "../utils/auth";
 import { generateJwt } from "../utils/jwt";
 
 export class AuthController {
+  static register = async (req: Request, res: Response) => {
+    res.json({ message: "Desde register()" });
+    return;
+  };
+
   static login = async (req: Request, res: Response) => {
     try {
       const { email, password } = req.body;
