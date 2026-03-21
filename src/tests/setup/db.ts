@@ -5,6 +5,6 @@ export const connectTestDatabase = async () => {
 };
 
 export const disconnectTestDatabase = async () => {
-  // await mongoose.connection.dropDatabase();
+  await mongoose.connection.dropDatabase();
   await mongoose.connection.close();
 };
