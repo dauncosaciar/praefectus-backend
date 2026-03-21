@@ -1,9 +1,5 @@
 import request from "supertest";
 import app from "../setup/app";
-import { connectTestDatabase, disconnectTestDatabase } from "../setup/db";
-
-beforeAll(connectTestDatabase);
-afterAll(disconnectTestDatabase);
 
 describe("AUTH ROUTES", () => {
   const user = {

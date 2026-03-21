@@ -7,5 +7,6 @@ module.exports = {
   testEnvironment: "node",
   transform: {
     ...tsJestTransformCfg
-  }
+  },
+  setupFilesAfterEnv: ["<rootDir>/src/tests/setup/jest.ts"]
 };
