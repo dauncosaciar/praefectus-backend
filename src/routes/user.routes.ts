@@ -9,10 +9,10 @@ import { UserController } from "../controllers/user.controller";
 const router = Router();
 
 router.use(authenticate);
+router.use(requireAdmin);
 
 router.post(
   "/",
-  requireAdmin,
   body("name").notEmpty().withMessage("El nombre del Usuario es obligatorio"),
   body("lastName").notEmpty().withMessage("El apellido del Usuario es obligatorio"),
   body("role").notEmpty().withMessage("El rol del Usuario es obligatorio"),
@@ -22,16 +22,15 @@ router.post(
   UserController.createUser
 );
 
-router.get("/", requireAdmin, UserController.getAllUsers);
+router.get("/", UserController.getAllUsers);
 
 router.param("userId", validateUserId);
 router.param("userId", userExists);
 
-router.get("/:userId", requireAdmin, UserController.getUserById);
+router.get("/:userId", UserController.getUserById);
 
 router.put(
   "/:userId",
-  requireAdmin,
   body("name").notEmpty().withMessage("El nombre del Usuario es obligatorio"),
   body("lastName").notEmpty().withMessage("El apellido del Usuario es obligatorio"),
   body("role").notEmpty().withMessage("El rol del Usuario es obligatorio"),
@@ -41,6 +40,6 @@ router.put(
   UserController.updateUser
 );
 
-router.delete("/:userId", requireAdmin, UserController.deleteUser);
+router.delete("/:userId", UserController.deleteUser);
 
 export default router;
