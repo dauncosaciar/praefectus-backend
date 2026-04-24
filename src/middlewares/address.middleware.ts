@@ -33,7 +33,9 @@ export const validateAddressId = async (
 export const addressExists = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { addressId } = req.params;
-    const address = await Address.findById(addressId);
+    const address = await Address.findById(addressId).select(
+      "_id street city province country user"
+    );
 
     if (!address) {
       const error = new Error("Dirección no encontrada");
