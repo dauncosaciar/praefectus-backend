@@ -84,7 +84,9 @@ describe("ADDRESS MIDDLEWARE", () => {
         addressId: mockAddress._id.toString()
       };
 
-      (Address.findById as jest.Mock).mockResolvedValue(mockAddress);
+      (Address.findById as jest.Mock).mockReturnValue({
+        select: jest.fn().mockResolvedValue(mockAddress)
+      });
 
       await addressExists(req, res as Response, next);
 
@@ -98,7 +100,9 @@ describe("ADDRESS MIDDLEWARE", () => {
         addressId: new Types.ObjectId().toString()
       };
 
-      (Address.findById as jest.Mock).mockResolvedValue(null);
+      (Address.findById as jest.Mock).mockReturnValue({
+        select: jest.fn().mockResolvedValue(null)
+      });
 
       await addressExists(req, res as Response, next);
 
@@ -114,7 +118,9 @@ describe("ADDRESS MIDDLEWARE", () => {
         addressId: new Types.ObjectId().toString()
       };
 
-      (Address.findById as jest.Mock).mockRejectedValue(new Error("DB error"));
+      (Address.findById as jest.Mock).mockReturnValue({
+        select: jest.fn().mockRejectedValue(new Error("DB error"))
+      });
 
       await addressExists(req, res as Response, next);
 
