@@ -33,7 +33,9 @@ export const validateStudyId = async (
 export const studyExists = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { studyId } = req.params;
-    const study = await Study.findById(studyId);
+    const study = await Study.findById(studyId).select(
+      "_id title institution startDate endDate user"
+    );
 
     if (!study) {
       const error = new Error("Estudio no encontrado");

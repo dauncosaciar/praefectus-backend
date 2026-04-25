@@ -27,6 +27,7 @@ export class AddressController {
 
   static getAddressById = async (req: Request, res: Response) => {
     res.json({ data: req.address });
+    return;
   };
 
   static updateAddress = async (req: Request, res: Response) => {

@@ -26,22 +26,8 @@ export class StudyController {
   };
 
   static getStudyById = async (req: Request, res: Response) => {
-    try {
-      const { studyId } = req.params;
-      const study = await Study.findById(studyId).select(
-        "_id title institution startDate endDate user"
-      );
-
-      if (!study) {
-        const error = new Error("Estudio no encontrado");
-        res.status(404).json({ error: error.message });
-        return;
-      }
-
-      res.json({ data: study });
-    } catch (error) {
-      res.status(500).json({ error: "Error al obtener el estudio" });
-    }
+    res.json({ data: req.study });
+    return;
   };
 
   static updateStudy = async (req: Request, res: Response) => {
