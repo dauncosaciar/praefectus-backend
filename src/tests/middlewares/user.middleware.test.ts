@@ -79,7 +79,9 @@ describe("USER MIDDLEWARE", () => {
         userId: mockUser._id.toString()
       };
 
-      (User.findById as jest.Mock).mockResolvedValue(mockUser);
+      (User.findById as jest.Mock).mockReturnValue({
+        select: jest.fn().mockResolvedValue(mockUser)
+      });
 
       await userExists(req, res as Response, next);
 
@@ -93,7 +95,9 @@ describe("USER MIDDLEWARE", () => {
         userId: new Types.ObjectId().toString()
       };
 
-      (User.findById as jest.Mock).mockResolvedValue(null);
+      (User.findById as jest.Mock).mockReturnValue({
+        select: jest.fn().mockResolvedValue(null)
+      });
 
       await userExists(req, res as Response, next);
 
@@ -109,7 +113,9 @@ describe("USER MIDDLEWARE", () => {
         userId: new Types.ObjectId().toString()
       };
 
-      (User.findById as jest.Mock).mockRejectedValue(new Error("DB error"));
+      (User.findById as jest.Mock).mockReturnValue({
+        select: jest.fn().mockRejectedValue(new Error("DB error"))
+      });
 
       await userExists(req, res as Response, next);
 
