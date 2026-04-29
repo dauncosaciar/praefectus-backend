@@ -29,7 +29,9 @@ export const validateUserId = async (req: Request, res: Response, next: NextFunc
 export const userExists = async (req: Request, res: Response, next: NextFunction) => {
   try {
     const { userId } = req.params;
-    const user = await User.findById(userId);
+    const user = await User.findById(userId).select(
+      "_id name lastName role email password addresses studies"
+    );
 
     if (!user) {
       const error = new Error("Usuario no encontrado");

@@ -26,22 +26,8 @@ export class UserController {
   };
 
   static getUserById = async (req: Request, res: Response) => {
-    try {
-      const { userId } = req.params;
-      const user = await User.findById(userId).select(
-        "_id name lastName role email password addresses studies"
-      );
-
-      if (!user) {
-        const error = new Error("Usuario no encontrado");
-        res.status(404).json({ error: error.message });
-        return;
-      }
-
-      res.json({ data: user });
-    } catch (error) {
-      res.status(500).json({ error: "Error al obtener el usuario" });
-    }
+    res.json({ data: req.user });
+    return;
   };
 
   static updateUser = async (req: Request, res: Response) => {
