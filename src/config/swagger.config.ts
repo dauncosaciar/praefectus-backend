@@ -4,26 +4,11 @@ const options: swaggerJSDoc.Options = {
   swaggerDefinition: {
     openapi: "3.1.1",
     tags: [
-      {
-        name: "Addresses",
-        description: "API operations related to CRUD of User Addresses."
-      },
-      {
-        name: "Studies",
-        description: "API operations related to CRUD of User Studies."
-      },
-      {
-        name: "Users",
-        description: "API operations related to CRUD of Users."
-      },
-      {
-        name: "Auth",
-        description: "API operations related to User registration and login."
-      },
-      {
-        name: "Profile",
-        description: "API operations related to update a logged-in User profile."
-      }
+      { name: "Auth", description: "Authentication endpoints" },
+      { name: "Users", description: "User management" },
+      { name: "Addresses", description: "User addresses" },
+      { name: "Profile", description: "User profile" },
+      { name: "Studies", description: "User studies" }
     ],
     info: {
       title: "Address Dashboard Backend: REST API Node.js / Express / TypeScript",
@@ -31,13 +16,7 @@ const options: swaggerJSDoc.Options = {
       description: "API docs for Address Dashboard"
     }
   },
-  apis: [
-    "./src/routes/address.routes.ts",
-    "./src/routes/study.routes.ts",
-    "./src/routes/user.routes.ts",
-    "./src/routes/auth.routes.ts",
-    "./src/routes/profile.routes.ts"
-  ]
+  apis: ["./src/routes/*.ts"]
 };
 
 const swaggerSpec = swaggerJSDoc(options);
