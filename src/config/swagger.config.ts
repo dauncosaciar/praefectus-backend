@@ -3,6 +3,15 @@ import swaggerJSDoc from "swagger-jsdoc";
 const options: swaggerJSDoc.Options = {
   swaggerDefinition: {
     openapi: "3.1.1",
+    components: {
+      securitySchemes: {
+        bearerAuth: {
+          type: "http",
+          scheme: "bearer",
+          bearerFormat: "JWT"
+        }
+      }
+    },
     tags: [
       { name: "Auth", description: "Authentication endpoints" },
       { name: "Users", description: "User management" },
@@ -16,7 +25,7 @@ const options: swaggerJSDoc.Options = {
       description: "API docs for Address Dashboard"
     }
   },
-  apis: ["./src/routes/*.ts"]
+  apis: ["./src/routes/*.ts", "./src/docs/*.ts"]
 };
 
 const swaggerSpec = swaggerJSDoc(options);
