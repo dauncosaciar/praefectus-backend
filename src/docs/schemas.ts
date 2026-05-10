@@ -120,11 +120,17 @@
  *          description: The JWT (Jason Web Token) that contains logged-in User ID
  *          example: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWViYjczNDcyZTZjZTcwNTM5ODkyNDkiLCJpYXQiOjE3Nzg0MjQ0MDYsImV4cCI6MTc3OTAyOTIwNn0.vu17Xi_DH-L4i5qGI-fR3hBf6VLTRYqti3H35XA0yOo
  *
- *    UserResponse:
+ *    UserWithRelationsResponse:
  *      type: object
  *      properties:
  *        data:
  *          $ref: '#/components/schemas/UserWithRelations'
+ *
+ *    UserWithPasswordResponse:
+ *      type: object
+ *      properties:
+ *        data:
+ *          $ref: '#/components/schemas/UserWithPassword'
  *
  *    UsersResponse:
  *      type: object
