@@ -24,7 +24,7 @@
  *        email:
  *          type: string
  *          description: The User email
- *          example: james.doe@example.com
+ *          example: james.doe@addressdashboard.com
  *
  *    UserWithPassword:
  *      allOf:
@@ -131,6 +131,12 @@
  *      properties:
  *        data:
  *          $ref: '#/components/schemas/UserWithPassword'
+ *
+ *    UserResponse:
+ *      type: object
+ *      properties:
+ *        data:
+ *          $ref: '#/components/schemas/User'
  *
  *    UsersResponse:
  *      type: object
