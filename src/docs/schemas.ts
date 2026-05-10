@@ -16,7 +16,7 @@
  *        email:
  *          type: string
  *
- *    UserPrivate:
+ *    UserWithPassword:
  *      allOf:
  *        - $ref: '#/components/schemas/User'
  *        - type: object
@@ -26,7 +26,7 @@
  *
  *    UserWithRelations:
  *      allOf:
- *        - $ref: '#/components/schemas/User'
+ *        - $ref: '#/components/schemas/UserWithPassword'
  *        - type: object
  *          properties:
  *            addresses:
@@ -85,6 +85,14 @@
  *      properties:
  *        data:
  *          $ref: '#/components/schemas/UserWithRelations'
+ *
+ *    UsersResponse:
+ *      type: object
+ *      properties:
+ *        data:
+ *          type: array
+ *          items:
+ *            $ref: '#/components/schemas/User'
  *
  *    AddressResponse:
  *      type: object
