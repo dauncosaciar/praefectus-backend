@@ -44,6 +44,22 @@ describe("USER CONTROLLER", () => {
       expect(res.body.message).toBe("Usuario creado correctamente");
     });
 
+    it("should return 409 if email already exists", async () => {
+      const res = await request(app)
+        .post("/api/v1/users")
+        .set("Authorization", `Bearer ${token}`)
+        .send({
+          name: "Test",
+          lastName: "User",
+          role: "admin",
+          email: "test@test.com",
+          password: "123456789"
+        });
+
+      expect(res.status).toBe(409);
+      expect(res.body.error).toBe("El email ingresado ya está en uso por otro Usuario");
+    });
+
     it("should return a 500 response if an error occurs", async () => {
       const saveMock = jest
         .spyOn(User.prototype, "save")
