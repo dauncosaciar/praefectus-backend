@@ -14,9 +14,9 @@ const options: swaggerJSDoc.Options = {
     },
     tags: [
       { name: "Auth", description: "Authentication endpoints" },
+      { name: "Profile", description: "Authenticated user profile" },
       { name: "Users", description: "User management" },
       { name: "Addresses", description: "User addresses" },
-      { name: "Profile", description: "User profile" },
       { name: "Studies", description: "User studies" }
     ],
     info: {
