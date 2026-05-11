@@ -39,7 +39,7 @@
  *            example:
  *              message: Account created successfully, you can now log in
  *      400:
- *        description: Bad request due to either invalid ID or invalid input data
+ *        description: Bad request due to invalid input data
  *      409:
  *        description: Conflict with an existing record
  *        content:
@@ -85,7 +85,7 @@
  *            schema:
  *              $ref: '#/components/schemas/AuthResponse'
  *      400:
- *        description: Bad request due to either invalid ID or invalid input data
+ *        description: Bad request due to invalid input data
  *      404:
  *        description: User not found
  *        content:
