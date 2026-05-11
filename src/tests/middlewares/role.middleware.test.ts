@@ -38,7 +38,7 @@ describe("ROLE MIDDLEWARE", () => {
 
       expect(res.status).toHaveBeenCalledWith(403);
       expect(res.json).toHaveBeenCalledWith({
-        error: "Acceso restringido a administradores"
+        error: "Acción permitida sólo a administradores"
       });
       expect(next).not.toHaveBeenCalled();
     });
