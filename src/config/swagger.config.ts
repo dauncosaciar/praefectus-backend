@@ -21,10 +21,10 @@ const options: swaggerJSDoc.Options = {
       { name: "Studies", description: "User studies" }
     ],
     info: {
-      title: "AddressDashboard: API Documentation",
+      title: "Praefectus: API Documentation",
       version: "1.0.0",
       description:
-        "API Docs for AddressDashboard. This API is developed using Node.js, Express.js, JavaScript, and TypeScript, and uses Mongoose as the ODM and MongoDB as the database."
+        "API Docs for Praefectus. This API is developed using Node.js, Express.js, JavaScript, and TypeScript, and uses Mongoose as the ODM and MongoDB as the database."
     }
   },
   apis: ["./src/docs/*.ts"]
@@ -33,7 +33,7 @@ const options: swaggerJSDoc.Options = {
 const swaggerSpec = swaggerJSDoc(options);
 
 const swaggerUiOptions: SwaggerUiOptions = {
-  customSiteTitle: "AddressDashboard: API Documentation"
+  customSiteTitle: "Praefectus: API Documentation"
 };
 
 export default swaggerSpec;
