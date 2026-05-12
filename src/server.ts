@@ -2,7 +2,7 @@ import express from "express";
 import dotenv from "dotenv";
 import morgan from "morgan";
 import swaggerUi from "swagger-ui-express";
-import swaggerSpec from "./config/swagger.config";
+import swaggerSpec, { swaggerUiOptions } from "./config/swagger.config";
 import { connectToDatabase } from "./config/db.config";
 import authRoutes from "./routes/auth.routes";
 import profileRoutes from "./routes/profile.routes";
@@ -35,6 +35,6 @@ app.use("/api/v1/users", addressRoutes);
 app.use("/api/v1/users", studyRoutes);
 
 // Swagger API docs
-app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec));
+app.use("/docs", swaggerUi.serve, swaggerUi.setup(swaggerSpec, swaggerUiOptions));
 
 export default app;
