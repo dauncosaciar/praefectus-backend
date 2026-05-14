@@ -24,6 +24,9 @@ const app = express();
 // Logging
 app.use(morgan("dev"));
 
+// Serve static files from the "public" directory
+app.use(express.static("public"));
+
 // Allow receiving JSON data in req.body
 app.use(express.json());
 

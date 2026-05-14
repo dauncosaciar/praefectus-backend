@@ -33,7 +33,14 @@ const options: swaggerJSDoc.Options = {
 const swaggerSpec = swaggerJSDoc(options);
 
 const swaggerUiOptions: SwaggerUiOptions = {
-  customSiteTitle: "Praefectus: API Documentation"
+  customSiteTitle: "Praefectus: API Documentation",
+  customfavIcon: "/assets/favicon.svg",
+  customCss: `
+    .topbar .topbar-wrapper .link {
+      content: url("/assets/logo.svg");
+      max-width: 200px;
+    }
+  `
 };
 
 export default swaggerSpec;
