@@ -92,6 +92,51 @@ El proyecto implementa autenticación basada en JWT, gestión de `Usuarios`, `Pe
 └─ 📄 tsconfig.json
 ```
 
+## ⚙️ Características principales
+
+### 🔐 Autenticación y autorización
+
+- Registro de usuarios
+- Inicio de sesión con `JWT`
+- Middleware de autenticación
+- Middleware de roles
+- Encriptación de contraseñas con `bcrypt`
+
+### 👤 Gestión de usuarios
+
+- CRUD de usuarios
+- Perfil autenticado
+- Roles de usuario
+- Validaciones con `express-validator`
+
+### 🏠 Gestión de domicilios
+
+- Crear domicilios
+- Obtener domicilios de usuarios
+- Actualizar domicilios
+- Eliminar domicilios
+
+### 🎓 Gestión de estudios
+
+- Crear estudios
+- Obtener estudios por usuario
+- Actualizar estudios
+- Eliminar estudios
+
+### 📘 Documentación API
+
+- Swagger UI integrado
+- OpenAPI 3.1.1
+- Documentación modularizada por rutas
+- Schemas reutilizables
+
+### 🧪 Testing
+
+- Tests unitarios e integración
+- Jest
+- Supertest
+- MongoDB Memory Server
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
