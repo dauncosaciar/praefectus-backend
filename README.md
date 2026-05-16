@@ -137,6 +137,33 @@ El proyecto implementa autenticación basada en JWT, gestión de `Usuarios`, `Pe
 - Supertest
 - MongoDB Memory Server
 
+## ⚡ Inicio rápido
+
+### 📋 Prerrequisitos
+
+- **Node.js** (versión especificada en `.nvmrc`)
+- **npm** - [Guía de instalación](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
+- **nvm** (opcional pero recomendado) - [UNIX](https://github.com/nvm-sh/nvm) | [Windows](https://github.com/coreybutler/nvm-windows)
+
+### 🛠️ Instalación
+
+```bash
+# 1. Clonar el repositorio
+git clone https://github.com/dauncosaciar/praefectus-backend.git
+cd praefectus-backend
+
+# 2. Usar la versión correcta de Node (la tomará de .nvmrc)
+nvm use
+
+# 3. Instalar dependencias
+npm install
+
+# 4. Levantar backend
+npm run dev:api
+```
+
+El backend de Praefectus se levantará en `http://localhost:3333`
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
