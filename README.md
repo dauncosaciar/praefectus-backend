@@ -164,6 +164,24 @@ npm run dev:api
 
 El backend de Praefectus se levantará en `http://localhost:3333`
 
+## 🔑 Variables de entorno
+
+El proyecto utiliza distintos archivos `.env` según el entorno.
+
+### `.env.development`
+
+```env
+DATABASE_URL=<mongodb_connection_string>
+JWT_SECRET=<jwt_secret>
+```
+
+### `.env.test`
+
+```env
+DATABASE_URL=<mongodb_connection_string>
+JWT_SECRET=<jwt_secret>
+```
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
