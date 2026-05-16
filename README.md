@@ -220,6 +220,69 @@ npm test
 npm run test:coverage
 ```
 
+## 🌐 Endpoints principales
+
+### Auth
+
+| Método | Endpoint                |
+| ------ | ----------------------- |
+| POST   | `/api/v1/auth/register` |
+| POST   | `/api/v1/auth/login`    |
+| GET    | `/api/v1/auth/user`     |
+
+### Profile
+
+| Método | Endpoint                   |
+| ------ | -------------------------- |
+| GET    | `/api/v1/profile`          |
+| POST   | `/api/v1/profile/password` |
+
+### Users
+
+| Método | Endpoint                |
+| ------ | ----------------------- |
+| POST   | `/api/v1/users`         |
+| GET    | `/api/v1/users`         |
+| GET    | `/api/v1/users/:userId` |
+| PUT    | `/api/v1/users/:userId` |
+| DELETE | `/api/v1/users/:userId` |
+
+### Addresses
+
+| Método | Endpoint                                     |
+| ------ | -------------------------------------------- |
+| POST   | `/api/v1/users/:userId/addresses`            |
+| GET    | `/api/v1/users/:userId/addresses`            |
+| GET    | `/api/v1/users/:userId/addresses/:addressId` |
+| PUT    | `/api/v1/users/:userId/addresses/:addressId` |
+| DELETE | `/api/v1/users/:userId/addresses/:addressId` |
+
+### Studies
+
+| Método | Endpoint                                 |
+| ------ | ---------------------------------------- |
+| POST   | `/api/v1/users/:userId/studies`          |
+| GET    | `/api/v1/users/:userId/studies`          |
+| GET    | `/api/v1/users/:userId/studies/:studyId` |
+| PUT    | `/api/v1/users/:userId/studies/:studyId` |
+| DELETE | `/api/v1/users/:userId/studies/:studyId` |
+
+## 📘 Documentación Swagger
+
+La documentación interactiva está disponible en:
+
+```bash
+http://localhost:3333/docs
+```
+
+Incluye:
+
+- Endpoints documentados
+- Schemas reutilizables
+- Seguridad JWT Bearer
+- Ejemplos de requests/responses
+- Swagger UI personalizado
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
