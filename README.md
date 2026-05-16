@@ -182,6 +182,44 @@ DATABASE_URL=<mongodb_connection_string>
 JWT_SECRET=<jwt_secret>
 ```
 
+## ▶️ Scripts disponibles
+
+### Desarrollo
+
+```bash
+npm run dev
+```
+
+Levanta el servidor en modo desarrollo utilizando Nodemon y TypeScript.
+
+### Desarrollo API
+
+```bash
+npm run dev:api
+```
+
+Levanta el servidor en modo desarrollo utilizando Nodemon y TypeScript.
+
+### Build de producción
+
+```bash
+npm run build
+```
+
+Compila TypeScript hacia JavaScript en la carpeta `dist`.
+
+### Testing
+
+```bash
+npm test
+```
+
+### Cobertura de tests
+
+```bash
+npm run test:coverage
+```
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
