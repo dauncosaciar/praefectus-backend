@@ -312,6 +312,10 @@ El proyecto cuenta con:
 - Cobertura de endpoints
 - Base de datos en memoria para testing (`mongodb-memory-server`)
 
+## 👨‍💻 Autor
+
+[**Daniel Alejandro Uncos Aciar**](https://daua-dev-portfolio.infinityfreeapp.com/)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
