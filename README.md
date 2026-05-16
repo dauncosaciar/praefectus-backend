@@ -296,6 +296,22 @@ El proyecto sigue una arquitectura modular basada en capas:
 - **Tests** → Unit tests y de integración
 - **Utils** → Funciones auxiliares
 
+## 🔒 Seguridad
+
+- Contraseñas hasheadas con `bcrypt`
+- Autenticación mediante `JWT`
+- Protección de rutas privadas
+- Validación de datos con `express-validator`
+- Variables sensibles mediante `dotenv`
+
+## 🧪 Testing y calidad
+
+El proyecto cuenta con:
+
+- Tests automatizados
+- Cobertura de endpoints
+- Base de datos en memoria para testing (`mongodb-memory-server`)
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
