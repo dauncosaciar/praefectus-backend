@@ -283,6 +283,19 @@ Incluye:
 - Ejemplos de requests/responses
 - Swagger UI personalizado
 
+## 🧱 Arquitectura utilizada
+
+El proyecto sigue una arquitectura modular basada en capas:
+
+- **Routes** → Definición de endpoints
+- **Controllers** → Lógica de negocio
+- **Models** → Esquemas y modelos de MongoDB
+- **Middlewares** → Validaciones y autorización
+- **Config** → Configuraciones globales
+- **Docs** → Swagger/OpenAPI
+- **Tests** → Unit tests y de integración
+- **Utils** → Funciones auxiliares
+
 <!-- MARKDOWN LINKS & IMAGES -->
 
 [praefectus-hero]: public/assets/praefectus-backend-github.jpg
