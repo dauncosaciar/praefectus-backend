@@ -1,0 +1,678 @@
+{
+  "info": {
+    "_postman_id": "05770798-505a-4196-a722-7b4fd6623e09",
+    "name": "Praefectus",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "24415947"
+  },
+  "item": [
+    {
+      "name": "Auth",
+      "item": [
+        {
+          "name": "Register",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"name\": \"James\",\r\n\t\"lastName\": \"Doe\",\r\n\t\"email\": \"james.doe@praefectus.com\",\r\n\t\"password\": \"123456789\",\r\n\t\"passwordConfirmation\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/auth/register",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "auth",
+                "register"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Login",
+          "request": {
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"email\": \"james.doe@praefectus.com\",\r\n\t\"password\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/auth/login",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "auth",
+                "login"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Authenticated User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/auth/user",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "auth",
+                "user"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Profile",
+      "item": [
+        {
+          "name": "Update Profile",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"name\": \"James M.\",\r\n\t\"lastName\": \"Doe\",\r\n\t\"email\": \"james.doe@praefectus.com\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/profile",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "profile"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Current Password",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"currentPassword\": \"123456789\",\r\n\t\"newPassword\": \"987654321\",\r\n\t\"newPasswordConfirmation\": \"987654321\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/profile/password",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "profile",
+                "password"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Users",
+      "item": [
+        {
+          "name": "Create User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"name\": \"Mark\",\r\n\t\"lastName\": \"Anthony\",\r\n\t\"role\": \"user\",\r\n\t\"email\": \"mark.anthony@praefectus.com\",\r\n\t\"password\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/users",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Users",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User By Id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a09047b8c81ddf7cacfe739",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a09047b8c81ddf7cacfe739"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"name\": \"Mark L.\",\r\n\t\"lastName\": \"Anthony\",\r\n\t\"role\": \"user\",\r\n\t\"email\": \"mark.anthony@praefectus.com\",\r\n\t\"password\": \"123456789\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/users/6a09047b8c81ddf7cacfe739",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a09047b8c81ddf7cacfe739"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete User",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a09047b8c81ddf7cacfe739",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a09047b8c81ddf7cacfe739"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Addresses",
+      "item": [
+        {
+          "name": "Create Address",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"street\": \"Another Street\",\r\n\t\"city\": \"Wichita\",\r\n\t\"province\": \"Kansas\",\r\n\t\"country\": \"USA\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/addresses",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "addresses"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Addresses",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/addresses",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "addresses"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Address By Id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/addresses/6a0905158c81ddf7cacfe74a",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "addresses",
+                "6a0905158c81ddf7cacfe74a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Address",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"street\": \"My New Street Updated\",\r\n\t\"city\": \"New York\",\r\n\t\"province\": \"New York\",\r\n\t\"country\": \"USA\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/addresses/6a0905158c81ddf7cacfe74a",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "addresses",
+                "6a0905158c81ddf7cacfe74a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Address",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/addresses/6a0905c08c81ddf7cacfe75d",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "addresses",
+                "6a0905c08c81ddf7cacfe75d"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
+      "name": "Studies",
+      "item": [
+        {
+          "name": "Create Study",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"title\": \"Another Study\",\r\n\t\"institution\": \"Another University\",\r\n\t\"startDate\": \"2015-03-01\",\r\n\t\"endDate\": \"2022-02-18\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/studies",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "studies"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get User Studies",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/studies",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "studies"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Study By Id",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/studies/6a09060d8c81ddf7cacfe76a",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "studies",
+                "6a09060d8c81ddf7cacfe76a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Study",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n\t\"title\": \"System Engineer Updated\",\r\n\t\"institution\": \"My University\",\r\n\t\"startDate\": \"2010-03-01\",\r\n\t\"endDate\": \"2017-02-18\"\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/studies/6a09060d8c81ddf7cacfe76a",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "studies",
+                "6a09060d8c81ddf7cacfe76a"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Study",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{AUTH_TOKEN}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "header": [],
+            "url": {
+              "raw": "{{API_URL}}/users/6a0902e78c81ddf7cacfe724/studies/6a0906a18c81ddf7cacfe781",
+              "host": [
+                "{{API_URL}}"
+              ],
+              "path": [
+                "users",
+                "6a0902e78c81ddf7cacfe724",
+                "studies",
+                "6a0906a18c81ddf7cacfe781"
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    }
+  ]
+}

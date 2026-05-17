@@ -283,6 +283,12 @@ Incluye:
 - Ejemplos de requests/responses
 - Swagger UI personalizado
 
+## 📄 Archivos JSON de endpoints y ambiente
+
+En la raíz de este repositorio se adjuntan los archivos `.json` de Postman referentes a las **colecciones** de endpoints de la api (`Praefectus.postman_collection.json`) y del **environment** donde están las variables se utilizan en todas las colecciones (`Praefectus.postman_environment.json`).
+
+Puedes abrir Postman e importar estos archivos para tener todas las colecciones y las variables del environment para así poder interactuar y probar la API.
+
 ## 🧱 Arquitectura utilizada
 
 El proyecto sigue una arquitectura modular basada en capas:
