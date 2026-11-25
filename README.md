@@ -143,7 +143,7 @@ El proyecto implementa autenticación basada en JWT, gestión de `Usuarios`, `Pe
 
 - **Node.js** (versión especificada en `.nvmrc`)
 - **npm** - [Guía de instalación](https://docs.npmjs.com/downloading-and-installing-node-js-and-npm)
-- **nvm** (opcional pero recomendado) - [UNIX](https://github.com/nvm-sh/nvm) | [Windows](https://github.com/coreybutler/nvm-windows)
+- **nvm** (opcional pero recomendado) - [UNIX](https://github.com/nvm-sh/nvm) | [Windows](https://nvm-windows.com/)
 
 ### 🛠️ Instalación
 
@@ -152,13 +152,10 @@ El proyecto implementa autenticación basada en JWT, gestión de `Usuarios`, `Pe
 git clone https://github.com/dauncosaciar/praefectus-backend.git
 cd praefectus-backend
 
-# 2. Usar la versión correcta de Node (la tomará de .nvmrc)
-nvm use
-
-# 3. Instalar dependencias
+# 2. Instalar dependencias (al ejecutar el comando, si no tienes la versión que aparece en .nvmrc instalada, se te preguntará si deseas hacerlo; una vez instalada se usará esta versión para ejecutar el npm install y todos los otros comandos de npm, independientemente de que tengas otras versiones instaladas en tu PC)
 npm install
 
-# 4. Levantar backend
+# 3. Levantar backend
 npm run dev:api
 ```
 
